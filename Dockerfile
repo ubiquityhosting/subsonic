@@ -1,7 +1,6 @@
 FROM ubuntu:trusty
 
 ENV LANG en_US.UTF-8
-RUN locale-gen $LANG
 
 RUN apt-get update -q && \
     apt-get install -qy openjdk-7-jre-headless
@@ -12,10 +11,9 @@ RUN dpkg -i /tmp/subsonic.deb && \
 
 # Don't fork to the background
 RUN sed -i "s/ > \${LOG} 2>&1 &//" /usr/share/subsonic/subsonic.sh
-RUN sed -i "s/SUBSONIC_HTTPS_PORT=0/SUBSONIC_HTTPS_PORT=4443/" /usr/share/subsonic/subsonic.sh
-
-ADD start.sh /start.sh
 
 EXPOSE 4443
 
-CMD ["/start.sh"]
+ADD start.sh /start.sh
+
+CMD [ "/start.sh" ]

@@ -11,6 +11,7 @@ RUN dpkg -i /tmp/subsonic.deb && \
 
 # Don't fork to the background
 RUN sed -i "s/ > \${LOG} 2>&1 &//" /usr/share/subsonic/subsonic.sh
+RUN sed -i "s/SUBSONIC_HTTPS_PORT=0/SUBSONIC_HTTPS_PORT=4443/" /usr/share/subsonic/subsonic.sh
 
 EXPOSE 4443
 

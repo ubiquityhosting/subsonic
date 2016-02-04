@@ -1,11 +1,11 @@
 # docker-subsonic
 
 ## Description
-A Dockerfile for [Subsonic](http://www.subsonic.org/) version 5.0.
+A Dockerfile for [Subsonic](http://www.subsonic.org/) version 5.3.
 
 ## Ports
 
-### 4443
+### 443
 WebUI port.
 
 ## Data
@@ -16,4 +16,4 @@ Add the environmental variable SUBSONIC_USER to change the user the subsonic pro
 SUBSONIC_USER_UID specifies the UID of the user, and is optional.
 
 ## Example
-docker run -d -e SUBSONIC_USER=akegata -e SUBSONIC_USER_UID=2000 -v '/var/subsonic:/var/subsonic' -v '/home/akegata/music:/mnt/music' -p 4443:4443 --name subsonic akegata/subsonic
+docker run -d -e SUBSONIC_USER=subsonic -v '/var/subsonic:/var/subsonic' -v '/var/music:/mnt/music' -p 443:443 --name subsonic ubiquityhosting/subsonic

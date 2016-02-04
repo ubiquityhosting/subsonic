@@ -5,7 +5,7 @@ ENV LANG en_US.UTF-8
 RUN apt-get update -q && \
     apt-get install -qy openjdk-7-jre-headless
 
-ADD http://downloads.sourceforge.net/project/subsonic/subsonic/5.1/subsonic-5.1.deb /tmp/subsonic.deb
+ADD http://subsonic.org/download/subsonic-5.3.deb /tmp/subsonic.deb
 RUN dpkg -i /tmp/subsonic.deb && \
     rm -rf /tmp/subsonic.deb
 
